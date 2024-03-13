@@ -16,11 +16,12 @@ namespace Console_RPG
         public Entity(string name, int hp, Stats stats)
         {
             this.name = name;
-            this.currentHP = hp;
-            this.maxHP = hp;
+            currentHP = hp;
+            maxHP = hp;
             this.stats = stats; 
         }
-
+        // allys in battle?
+        public abstract void DoTurn(List<Player> players, List<Enemy> enemies, List<Ally> allies);
         public abstract Entity ChooseTarget(List<Entity> targets);
         public abstract void Attack(Entity target);
 

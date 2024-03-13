@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Console_RPG
 {
@@ -17,6 +18,12 @@ namespace Console_RPG
         {
             Random random = new Random();
             return targets[random.Next(targets.Count)];
+        }
+
+        public override void DoTurn(List<Player> players, List<Enemy> enemies, List<Ally> allies)
+        {
+            Entity target = ChooseTarget(enemies.Cast<Entity>().ToList());
+            Attack(target);
         }
 
         public override void Attack(Entity target)
